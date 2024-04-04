@@ -1,5 +1,4 @@
 const { sign } = require("jsonwebtoken");
-const loginModel = require("../../models/loginModel");
 const signupModel = require("../../models/signupModel");
 const bcrypt = require('bcrypt');
 
