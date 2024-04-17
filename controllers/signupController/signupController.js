@@ -1,34 +1,33 @@
-const signupModel = require("../../models/signupModel")
-const bcrypt = require("bcrypt")
+const loginModel = require("../../models/loginModel");
+const bcrypt = require('bcrypt')
 
-const signupController=async(req,res)=>{
-    const {name,email,mobileNumber,password}=req.body
-try {
-   const existingUser = await signupModel.findOne({email:email})
-   if (existingUser) {
-   return res.status(400).json({
-        success:false,
-        message:"user already exist"
-    })
-    
-   }
-   const hashedPassword = await bcrypt.hash(password,10)
-    const result = await signupModel.create({
-        name ,
-        email,
-        mobileNumber,
-        password:hashedPassword
-    })
+const signupController = async (req, res) => {
+  const { userName, password, email, mobile } = req.body;
+  try {
+    const existingUser = await loginModel.findOne({ email: email });
+    if (existingUser) {
+      return res.status(402).json({
+        message: "user already exist",
+      });
+    }
+
+    const hashedPassword = await bcrypt.hashSync(password,10)
+    const createUser = await loginModel.create({
+      userName,
+      password:hashedPassword,
+      email,
+      mobile,
+    });
     res.status(200).json({
-        success: true,
-        message: "signup successful",
+        message:"user created sucessfully",
+        data:createUser
     })
-   console.log("result",result)
-    
-} catch (error) {
-    console.log("err",error)
-    
-}
-}
+  } catch (error) {
+    res.status(400).json({
+        message:"internal server error"
+    })
+    console.log(error)
+  }
+};
 
-module.exports =signupController
+module.exports = signupController;

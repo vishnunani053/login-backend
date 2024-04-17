@@ -2,7 +2,7 @@ const Router = require("express");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
-const submitKyc = require("../controllers/kycForm/addKyc");
+const submitKyc = require("../../controllers/kycForm/addKyc");
 
 const router = Router();
 

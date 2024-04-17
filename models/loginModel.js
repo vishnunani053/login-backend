@@ -1,16 +1,16 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const  mongoose  = require("mongoose");
 
-let loginSchema = new Schema(
-	{
-		userName: { type: String, trim: true },
-        password:{type:String}
+const loginSchema = new mongoose.Schema({
+	userName:{type:String},
+	password:{type:String},
+	email:{type:String},
+	mobile:{type:String}
+},
+{
+	timestamps:true
+}
+)
 
-	},
-	{
-		timestamps: true,
-	}
-);
+const loginModel = mongoose.model("vishnu-login",loginSchema)
 
-const loginModel = mongoose.model('login details', loginSchema);
-module.exports = loginModel;
+module.exports = loginModel

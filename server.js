@@ -1,20 +1,16 @@
-const app = require("./app.js");
-let connectDatabase = require("./config/DBconfig.js");
-require("dotenv").config();
+const app = require('./app');
+const connectDatabase = require('./config/DBconfig');
+const port = process.env.PORT || 5000
 
-const Port = process.env.PORT || 4000;
-
-const server= app.listen(Port, async () => {
+app.listen(port,async(req,res)=>{
     try {
-        await connectDatabase();
-
-        console.log(`listening on http://localhost:${Port}/`);
+        await connectDatabase()
+        console.log(`listening on http://localhost:${port}`)
     } catch (error) {
         console.log("app.listen  error:", error);
-
-        console.log(`error while listening on ${Port}`);
+        console.log(`error while listening on ${port}`);
     }
-});
+})
 
 
 

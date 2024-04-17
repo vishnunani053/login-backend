@@ -1,10 +1,10 @@
 const Router = require("express");
-const submitKyc = require("../controllers/kycForm/addKyc");
-const anyFileUpload = require("../middlewares/uploadEmpResume/multer");
-const pdfUploadHandler = require("../middlewares/uploadEmpResume/pdfUpload");
-const showKycDetails = require("../controllers/kycForm/showKyc");
-const showkycByid = require("../controllers/kycForm/showKycByid");
-const loginForm = require("../controllers/login/loginController");
+const submitKyc = require("../../controllers/kycForm/addKyc");
+const anyFileUpload = require("../../middlewares/uploadEmpResume/multer");
+const pdfUploadHandler = require("../../middlewares/uploadEmpResume/pdfUpload");
+const showKycDetails = require("../../controllers/kycForm/showKyc");
+const showkycByid = require("../../controllers/kycForm/showKycByid");
+const loginForm = require("../../controllers/login/loginController");
 
 
 const router = Router();

@@ -16,5 +16,5 @@ let userSchema = new Schema(
 	}
 );
 
-const userModel = mongoose.model('product data', userSchema);
+const userModel = mongoose.model('vishnu user', userSchema);
 module.exports = userModel;
