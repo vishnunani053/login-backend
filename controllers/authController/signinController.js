@@ -11,21 +11,6 @@ const signInController = async (req, res) => {
             message:"user not exist"
         })        
     }
-//     const passwordMatched = await bcrypt.compare(password,existingUser.password);
-//     if (!passwordMatched) {
-//         return res.status(401).json({
-//             message:"password miss match"
-//         })
-//     }
-
-//     const secretKey = process.env.JWT_SECRET_KEY
-// const token =await jwt.sign(JSON.stringify(existingUser),secretKey)
-// console.log(token)
-// res.status(200).json({
-//     message:"login sucessfull",
-//     data:existingUser,
-//     token:token
-// })
 
 const passwordMatched = await bcrypt.compare(password,existingUser.password)
 if (!passwordMatched) {
@@ -34,7 +19,6 @@ if (!passwordMatched) {
             })
 }
 const secretKey = process.env.JWT_SECRET_KEY
-// const token = jwt.sign(JSON.stringify(existingUser),secretKey)
 const token = jwt.sign(JSON.stringify(existingUser),secretKey)
 res.status(200).json({
     message:"user login sucessfull",
