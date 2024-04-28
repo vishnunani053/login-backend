@@ -20,10 +20,14 @@ if (!passwordMatched) {
 }
 const secretKey = process.env.JWT_SECRET_KEY
 const token = jwt.sign(JSON.stringify(existingUser),secretKey)
+const profileName = existingUser.userName
+const userEmail = existingUser.email
 res.status(200).json({
     message:"user login sucessfull",
     data:existingUser,
-    token:token
+    token:token,
+    userName:profileName,
+    email:userEmail,
 })
 
   } catch (error) {
